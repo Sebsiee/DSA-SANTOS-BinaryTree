@@ -58,6 +58,12 @@ class BinarySearchTreeNode:
         else:
             return self.data
 
+    def find_max(self):
+        if self.right:
+            return self.right.find_max()
+        else:
+            return self.data
+
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
 
@@ -70,3 +76,4 @@ if __name__ == '__main__':
     sebastian = ["s", "e", "b", "a", "s", "t", "i", "a", "n", "o", "r", "d", "o", "n", "i", "o", "s", "a", "n", "t", "o", "s"]
     name_tree = build_tree(sebastian)
     print(name_tree.find_min())
+    print(name_tree.find_max())
