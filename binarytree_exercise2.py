@@ -77,9 +77,10 @@ class BinarySearchTreeNode:
             if self.right is None:
                 return self.right
             
-            min_val = self.right.find_min()
-            self.data = min_val
-            self.right = self.right.delete(min_val)
+            #Use max value from left subtree
+            max_val = self.left.find_max()
+            self.data = max_val
+            self.left = self.left.delete(max_val)
 
         return self
 
@@ -93,6 +94,9 @@ def build_tree(elements):
     return root
 
 if __name__ == '__main__':
-    numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
-    numbers_tree.delete(20)
-    print("After deleteing 20", numbers_tree.in_order_traversal())
+    #Full Name: Sebastian Ordonio Santos
+    sebastian = ["s", "e", "b", "a", "s", "t", "i", "a", "n", "o", "r", "d", "o", "n", "i", "o", "s", "a", "n", "t", "o", "s"]
+    name_tree = build_tree(sebastian)
+    choose_delete = input("What element would you like to delete? ")
+    name_tree.delete(choose_delete)
+    print(f"After deleteing {choose_delete}:", name_tree.in_order_traversal())
