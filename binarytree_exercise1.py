@@ -103,8 +103,34 @@ if __name__ == '__main__':
     #Full Name: Sebastian Ordonio Santos
     sebastian = ["s", "e", "b", "a", "s", "t", "i", "a", "n", "o", "r", "d", "o", "n", "i", "o", "s", "a", "n", "t", "o", "s"]
     name_tree = build_tree(sebastian)
-    print(name_tree.find_min())
-    print(name_tree.find_max())
-    print(name_tree.calculate_sum())
-    print(name_tree.post_order_traversal())
-    print(name_tree.pre_order_traversal())
+    print("=============MENU===============")
+    print("       1 - Find Min")
+    print("       2 - Find Max")
+    print("       3 - Calculate Sum")
+    print("       4 - Post Order Traversal")
+    print("       5 - Pre Order Traversal")
+    print("       6 - Exit")
+    print("================================")
+    while True:
+        user_input = input("Choose your option (1-6) ")
+        if user_input == "1":
+            print("\033[1;32mFound Min : \033[0;0m", name_tree.find_min())
+        elif user_input == "2":
+            print("\033[1;32mFound Max : \033[0;0m", name_tree.find_max())
+        elif user_input == "3":
+            print("\033[1;32mCalculated Sum : \033[0;0m", name_tree.calculate_sum())
+        elif user_input == "4":
+            print("\033[1;32mPost Ordered Traversal : \033[0;0m",name_tree.post_order_traversal())
+        elif user_input == "5":
+            print("\033[1;32mPre Ordered Traversal : \033[0;0m",name_tree.pre_order_traversal())
+        elif user_input == "6":
+            exitOption = input(" \033[0;31mExit? (Y/N): \033[0;0m")
+            if exitOption.upper() == "Y":
+                break
+            elif exitOption.upper() == "N":
+                continue
+            else:
+                print("Input not recognized.")
+        else:
+            print("Input not recognized.")
+            continue
