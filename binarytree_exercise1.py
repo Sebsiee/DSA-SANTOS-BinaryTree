@@ -92,6 +92,7 @@ class BinarySearchTreeNode:
         return elements
 
 def build_tree(elements):
+    print("Elements:", elements)
     root = BinarySearchTreeNode(elements[0])
 
     for i in range(1,len(elements)):
@@ -124,7 +125,7 @@ if __name__ == '__main__':
         elif user_input == "5":
             print("\033[1;32mPre Ordered Traversal : \033[0;0m",name_tree.pre_order_traversal())
         elif user_input == "6":
-            exitOption = input(" \033[0;31mExit? (Y/N): \033[0;0m")
+            exitOption = input("\033[0;31mExit? (Y/N): \033[0;0m")
             if exitOption.upper() == "Y":
                 break
             elif exitOption.upper() == "N":
