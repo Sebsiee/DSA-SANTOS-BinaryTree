@@ -64,6 +64,24 @@ class BinarySearchTreeNode:
         else:
             return self.data
 
+    def calculate_sum(self):
+        sum = self.data
+        if self.left:
+            sum += self.left.calculate_sum()
+        if self.right:
+            sum += self.right.calculate_sum()
+        return sum
+
+
+    def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.post_order_traversal()
+        if self.right:
+            elements += self.right.post_order_traversal()
+        elements.append(self.data)
+        return elements
+
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
 
@@ -73,7 +91,10 @@ def build_tree(elements):
     return root
 
 if __name__ == '__main__':
+    #Full Name: Sebastian Ordonio Santos
     sebastian = ["s", "e", "b", "a", "s", "t", "i", "a", "n", "o", "r", "d", "o", "n", "i", "o", "s", "a", "n", "t", "o", "s"]
     name_tree = build_tree(sebastian)
     print(name_tree.find_min())
     print(name_tree.find_max())
+    print(name_tree.calculate_sum())
+    print(name_tree.post_order_traversal())
