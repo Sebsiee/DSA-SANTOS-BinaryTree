@@ -75,9 +75,9 @@ class BinarySearchTreeNode:
             if self.left is None:
                 return self.right
             if self.right is None:
-                return self.right
-            
-            #Use max value from left subtree
+                return self.left
+
+            # Use max value from left subtree
             max_val = self.left.find_max()
             self.data = max_val
             self.left = self.left.delete(max_val)
@@ -95,8 +95,7 @@ def build_tree(elements):
 
 if __name__ == '__main__':
     #Full Name: Sebastian Ordonio Santos
-    sebastian = ["s", "e", "b", "a", "s", "t", "i", "a", "n", "o", "r", "d", "o", "n", "i", "o", "s", "a", "n", "t", "o", "s"]
-    name_tree = build_tree(sebastian)
-    choose_delete = input("What element would you like to delete? ")
+    name_tree = build_tree(["s", "e", "b", "a", "s", "t", "i", "a", "n", "o", "r", "d", "o", "n", "i", "o", "s", "a", "n", "t", "o", "s"])
+    choose_delete = input("What node would you like to replace with its in-order predecessor? ")
     name_tree.delete(choose_delete)
     print(f"After deleteing {choose_delete}:", name_tree.in_order_traversal())
